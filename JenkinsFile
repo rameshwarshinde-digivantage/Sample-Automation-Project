@@ -1,0 +1,57 @@
+pipeline { 
+agent any 
+//triggers{ cron('22 16 31 1-11 *') }
+tools{ jdk "JAVA_HOME" maven "MAVEN" } 
+stages { 
+   //stage('Build') { 
+      //steps { 
+       // bat "mvn clean install"
+      //}
+   //}
+   stage('Test') { 
+
+     steps { 
+        bat "mvn -D clean test"
+        //bat "mvn -D clean verify sonar:sonar -Dsonar.token=sqa_73a5151e0db420867465e0c8631031e964c15d85" 
+         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '', reportFiles: 'test- output/emailable-report.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+         }
+
+      } 
+
+    stage('Zip Folder') {
+            steps {
+                // Archive the folder into a zip file
+                script {
+                        archiveArtifacts artifacts: 'test-output/emailable-report.html', followSymlinks: false
+                       zip archive: true, dir: 'Screenshot', zipFile: 'Screenshot.zip'
+                        //zip archive: true, dir: 'test-output', zipFile: 'test-output.zip'
+                     //bat "zip -r DataFiles.zip DataFiles"
+
+                }
+            }
+        }
+
+        stage('Send Email') {
+            steps {
+                // Send email with the zip file as an attachment
+                emailext body: 'Hi, Test completed and required report doc attched here!',
+                        subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!',
+                        to: 'pravin.kumar@interactiveavenues.com, Tejas.Vinerkar@interactiveavenues.com, rameshwar.shinde@digivantagesolutions.com, Akshay.Dupate@interactiveavenues.com',
+                        attachmentsPattern: '**/*.zip, test-output\\emailable-report.html',
+                        attachLog: true
+            }
+         post {
+           always {
+                 // Clean up: Delete the zipped file after sending the email
+                //deleteDir()
+                cleanWs()
+                //bat "del  '**/*.zip' "
+            }
+           }
+         }
+
+
+
+   }
+}
+Footer

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Zodiac Test Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Zodiac Test on Desktop Chrome(failed)">
+    <parameter name="os" value="Windows"/>
+    <parameter name="browserName" value="Chrome"/>
+    <classes>
+      <class name="lambdaTestcase.Zodiac_Desktop">
+        <methods>
+          <include name="registeredUserJourneyTest"/>
+          <include name="guestUserJourneyTest"/>
+          <include name="tearDown"/>
+          <include name="verifyLoginTest"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- lambdaTestcase.Zodiac_Desktop -->
+    </classes>
+  </test> <!-- Zodiac Test on Desktop Chrome(failed) -->
+  <test thread-count="5" name="Zodiac Test on Desktop Edge(failed)">
+    <parameter name="os" value="Windows"/>
+    <parameter name="browserName" value="Edge"/>
+    <classes>
+      <class name="lambdaTestcase.Zodiac_Desktop">
+        <methods>
+          <include name="registeredUserJourneyTest"/>
+          <include name="guestUserJourneyTest"/>
+          <include name="tearDown"/>
+          <include name="verifyLoginTest"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- lambdaTestcase.Zodiac_Desktop -->
+    </classes>
+  </test> <!-- Zodiac Test on Desktop Edge(failed) -->
+  <test thread-count="5" name="Zodiac Test on Desktop Firefox(failed)">
+    <parameter name="os" value="Windows"/>
+    <parameter name="browserName" value="Firefox"/>
+    <classes>
+      <class name="lambdaTestcase.Zodiac_Desktop">
+        <methods>
+          <include name="registeredUserJourneyTest"/>
+          <include name="guestUserJourneyTest"/>
+          <include name="tearDown"/>
+          <include name="verifyLoginTest"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- lambdaTestcase.Zodiac_Desktop -->
+    </classes>
+  </test> <!-- Zodiac Test on Desktop Firefox(failed) -->
+  <test thread-count="5" name="Zodiac Test on Desktop Mac Safari Ventura(failed)">
+    <parameter name="os" value="macOS Ventura"/>
+    <parameter name="browserName" value="Safari"/>
+    <classes>
+      <class name="lambdaTestcase.Zodiac_Desktop">
+        <methods>
+          <include name="registeredUserJourneyTest"/>
+          <include name="guestUserJourneyTest"/>
+          <include name="tearDown"/>
+          <include name="verifyLoginTest"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- lambdaTestcase.Zodiac_Desktop -->
+    </classes>
+  </test> <!-- Zodiac Test on Desktop Mac Safari Ventura(failed) -->
+</suite> <!-- Failed suite [Zodiac Test Suite] -->

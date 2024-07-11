@@ -1,0 +1,26 @@
+{
+    "device":[{
+    	"options":"ChromeOptions",
+        "platform": "Windows 10",
+        "browser":"chrome",
+        "version": "119"     
+    
+        },
+        
+      {
+      	"options":"SafariOptions",
+        "platform": "macOS Ventura",
+        "browser":"safari",
+        "version": "16"
+    
+        },
+        {
+      	"options":"FirefoxOptions",
+        "platform": "Windows 10",
+        "browser":"firefox",
+        "version": "120"
+    
+        }
+       ]
+}
+ 
